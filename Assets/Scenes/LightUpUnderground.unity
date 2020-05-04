@@ -243,12 +243,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 704407629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e216d2d48c79b4b4a90aebf5f0184bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c50cbb34ec46b4aa1f3fbfa14053e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: 34eaab522504662409ac2324becb1f76, type: 2}
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
+  pointAudio: 1
+  waitForSecBeforeReset: 4
 --- !u!65 &704407631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -352,12 +354,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119860276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e216d2d48c79b4b4a90aebf5f0184bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c50cbb34ec46b4aa1f3fbfa14053e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
   changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
+  pointAudio: 1
+  waitForSecBeforeReset: 4
 --- !u!65 &1119860278
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -691,12 +695,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561820152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e216d2d48c79b4b4a90aebf5f0184bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c50cbb34ec46b4aa1f3fbfa14053e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
   changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
+  pointAudio: 1
+  waitForSecBeforeReset: 4
 --- !u!65 &1561820154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -821,7 +827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
+  - {fileID: 2100000, guid: 34eaab522504662409ac2324becb1f76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -880,7 +886,7 @@ GameObject:
   - component: {fileID: 1972292717}
   m_Layer: 0
   m_Name: MoveTester!
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

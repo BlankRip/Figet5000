@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstaReset : LightUps
+public class NeverReset : LightUps
 {
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        initialMat = renderer.material;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -16,6 +15,7 @@ public class InstaReset : LightUps
         if (collision.gameObject.CompareTag("Player"))
         {
             OnTouchDown();
+            pointAudio = false;
         }
     }
 
@@ -24,7 +24,6 @@ public class InstaReset : LightUps
         if (collision.gameObject.CompareTag("Player"))
         {
             OnLiftOff();
-            ResetMat();
         }
     }
 }
