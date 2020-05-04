@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NeverReset : LightUps
+public class DeathReset : LightUps
 {
     void Start()
     {
@@ -11,10 +11,16 @@ public class NeverReset : LightUps
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && givePoint)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            OnTouchDown();
-            givePoint = false;
+            if (givePoint)
+            {
+                OnTouchDown();
+                givePoint = false;
+            }
+            else
+                Debug.Log("<color=red> Died Move Scene </color>");
+
             if (GameManager.instance.score >= GameManager.instance.totalNumberOfLightUps)
                 Debug.Log("<color=blue> Move To Next scene </color>");
         }

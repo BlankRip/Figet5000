@@ -23,11 +23,11 @@ public class TimerReset : LightUps
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && givePoint)
         {
             switchBack = false;
             OnTouchDown();
-            pointAudio = false;
+            givePoint = true;
         }
     }
 
@@ -49,6 +49,6 @@ public class TimerReset : LightUps
         yield return new WaitForSeconds(waitForSecBeforeReset);
         switchBack = true;
         runReset = true;
-        pointAudio = true;
+        givePoint = true;
     }
 }
