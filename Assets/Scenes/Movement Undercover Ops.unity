@@ -740,11 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742e1cb7ef8e8f741830785cd58c8267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  moveSmothness: 0.2
-  rotationSpeed: 0.2
-  jumpForce: 15
-  jumpKey: 32
+  currentSettings: {fileID: 11400000, guid: 005d64c81f4948b4b836d1273f6cf686, type: 2}
 --- !u!54 &1972292718
 Rigidbody:
   m_ObjectHideFlags: 0

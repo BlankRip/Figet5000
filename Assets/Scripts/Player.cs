@@ -12,12 +12,9 @@ public class Player : MonoBehaviour
     float horizontalInput;
     float verticaleInput;
     bool jump;
+    bool sprinting;
 
-    [SerializeField] float moveSpeed;
-    [Range(0, 1)] [SerializeField] float moveSmothness;
-    [Range(0, 1)] [SerializeField] float rotationSpeed;
-    [SerializeField] float jumpForce;
-    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] PlayerSettings currentSettings;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +27,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
-        verticaleInput = Input.GetAxis("Vertical") * moveSpeed;
+        horizontalInput = Input.GetAxis("Horizontal") * currentSettings.moveSpeed;
+        verticaleInput = Input.GetAxis("Vertical") * currentSettings.moveSpeed;
 
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(currentSettings.jumpKey))
             jump = true;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            sprinting = true;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            sprinting = false;
     }
 
     private void FixedUpdate()
@@ -44,21 +46,27 @@ public class Player : MonoBehaviour
 
     void Movement(float horizontalInput, float verticleInput, ref bool jump)
     {
+        if(sprinting)
+        {
+            horizontalInput = horizontalInput * currentSettings.sprintSpeedMultiplier;
+            verticleInput = verticleInput * currentSettings.sprintSpeedMultiplier;
+        }
+
         targetVel = new Vector3(horizontalInput, rb.velocity.y, verticleInput);
         targetVel = transform.rotation * targetVel;
 
         if (horizontalInput != 0 || verticaleInput != 0)
         {
             turnAngle = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
-            rb.rotation = Quaternion.Slerp(transform.rotation, turnAngle, rotationSpeed);
+            rb.rotation = Quaternion.Slerp(transform.rotation, turnAngle, currentSettings.rotationSpeed);
         }
 
         
         if(jump)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * currentSettings.jumpForce, ForceMode.Impulse);
             jump = false;
         }
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref currentVelRef, moveSmothness);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref currentVelRef, currentSettings.moveSmothness);
     }
 }
