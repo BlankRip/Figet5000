@@ -8,21 +8,19 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject[] edgePieces;
     [SerializeField] GameObject[] middlePieces;
 
-    GameObject[] cornerSpawnPoints;
-    GameObject[] edgeSpawnPoints;
-    GameObject[] middleSpwanPoints;
+    GameObject[] spawnPoints;
     int pick;
     int previousPick;
 
     // Start is called before the first frame update
     void Start()
     {
-        cornerSpawnPoints = GameObject.FindGameObjectsWithTag("CornerTile");
-        middleSpwanPoints = GameObject.FindGameObjectsWithTag("MiddleTile");
-        edgeSpawnPoints = GameObject.FindGameObjectsWithTag("EdgeTile");
-        LoopSelectSpawn(cornerPieces, cornerSpawnPoints);
-        LoopSelectSpawn(edgePieces, edgeSpawnPoints);
-        LoopSelectSpawn(middlePieces, middleSpwanPoints);
+        spawnPoints = GameObject.FindGameObjectsWithTag("CornerTile");
+        LoopSelectSpawn(cornerPieces, spawnPoints);
+        spawnPoints = GameObject.FindGameObjectsWithTag("MiddleTile");
+        LoopSelectSpawn(edgePieces, spawnPoints);
+        spawnPoints = GameObject.FindGameObjectsWithTag("EdgeTile");
+        LoopSelectSpawn(middlePieces, spawnPoints);
     }
 
     void LoopSelectSpawn(GameObject[] spawnObjs, GameObject[] spawnPoints)

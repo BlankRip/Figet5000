@@ -10,27 +10,27 @@ PrefabInstance:
     - target: {fileID: 2484338251556250701, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
       propertyPath: m_Name
-      value: Corner_Type6
+      value: Corner_Type6 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5506262681331714299, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3442cc023abd194498214610054bc389, type: 2}
+      objectReference: {fileID: 2100000, guid: 7e998d4bcd7864e46a6bbc3e1f30627c, type: 2}
     - target: {fileID: 6453752863522044540, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6453752863522044540, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6453752863522044540, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6453752863522044540, guid: 87aafa10531baf24c8b5e952dff002c9,
         type: 3}
