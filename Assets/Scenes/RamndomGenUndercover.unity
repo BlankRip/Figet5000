@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 4456071}
   - component: {fileID: 4456074}
   - component: {fileID: 4456073}
-  - component: {fileID: 4456072}
   m_Layer: 0
   m_Name: PointDir
   m_TagString: Untagged
@@ -154,19 +153,6 @@ Transform:
   m_Father: {fileID: 1972292716}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4456072
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &4456073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -306,7 +292,7 @@ GameObject:
   - component: {fileID: 86426283}
   m_Layer: 0
   m_Name: RightEdgePiece (2)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,7 +450,7 @@ GameObject:
   - component: {fileID: 205174452}
   m_Layer: 0
   m_Name: BackEdgePiece (3)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,7 +529,7 @@ GameObject:
   - component: {fileID: 218847258}
   m_Layer: 0
   m_Name: LeftEdgePiece
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,7 +608,7 @@ GameObject:
   - component: {fileID: 219467373}
   m_Layer: 0
   m_Name: ForwardEdgePiece (4)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,7 +687,7 @@ GameObject:
   - component: {fileID: 228399794}
   m_Layer: 0
   m_Name: MiddlePiece (5)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +766,7 @@ GameObject:
   - component: {fileID: 231385368}
   m_Layer: 0
   m_Name: ForwardEdgePiece
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,7 +845,7 @@ GameObject:
   - component: {fileID: 239872823}
   m_Layer: 0
   m_Name: RightEdgePiece (5)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,7 +924,7 @@ GameObject:
   - component: {fileID: 254302408}
   m_Layer: 0
   m_Name: BackEdgePiece
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,7 +1036,7 @@ GameObject:
   - component: {fileID: 298408964}
   m_Layer: 0
   m_Name: BackEdgePiece (5)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,7 +1115,7 @@ GameObject:
   - component: {fileID: 350344561}
   m_Layer: 0
   m_Name: BackEdgePiece (2)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1363,7 +1349,7 @@ GameObject:
   - component: {fileID: 507371030}
   m_Layer: 0
   m_Name: BackEdgePiece (6)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,7 +1428,7 @@ GameObject:
   - component: {fileID: 520527952}
   m_Layer: 0
   m_Name: MiddlePiece (7)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1521,7 +1507,7 @@ GameObject:
   - component: {fileID: 520551262}
   m_Layer: 0
   m_Name: LeftEdgePiece (4)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1837,7 +1823,7 @@ GameObject:
   - component: {fileID: 554286758}
   m_Layer: 0
   m_Name: LeftEdgePiece (3)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1916,7 +1902,7 @@ GameObject:
   - component: {fileID: 581360479}
   m_Layer: 0
   m_Name: MiddlePiece (8)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1995,7 +1981,7 @@ GameObject:
   - component: {fileID: 583435146}
   m_Layer: 0
   m_Name: MiddlePiece (3)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2074,7 +2060,7 @@ GameObject:
   - component: {fileID: 635949656}
   m_Layer: 0
   m_Name: MiddlePiece
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2153,7 +2139,7 @@ GameObject:
   - component: {fileID: 654401287}
   m_Layer: 0
   m_Name: ForwardEdgePiece (2)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2232,7 +2218,7 @@ GameObject:
   - component: {fileID: 678469291}
   m_Layer: 0
   m_Name: ForwardEdgePiece (5)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2390,7 +2376,7 @@ GameObject:
   - component: {fileID: 778755714}
   m_Layer: 0
   m_Name: LeftEdgePiece (6)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2469,7 +2455,7 @@ GameObject:
   - component: {fileID: 810678620}
   m_Layer: 0
   m_Name: ForwardEdgePiece (3)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2590,7 +2576,7 @@ GameObject:
   - component: {fileID: 880944135}
   m_Layer: 0
   m_Name: BackEdgePiece (7)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2748,7 +2734,7 @@ GameObject:
   - component: {fileID: 952820821}
   m_Layer: 0
   m_Name: BackEdgePiece (4)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2827,7 +2813,7 @@ GameObject:
   - component: {fileID: 969069561}
   m_Layer: 0
   m_Name: RightEdgePiece (7)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2999,7 +2985,7 @@ GameObject:
   - component: {fileID: 998233438}
   m_Layer: 0
   m_Name: RightEdgePiece (3)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3078,7 +3064,7 @@ GameObject:
   - component: {fileID: 1021554572}
   m_Layer: 0
   m_Name: MiddlePiece (11)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3157,7 +3143,7 @@ GameObject:
   - component: {fileID: 1074197538}
   m_Layer: 0
   m_Name: MiddlePiece (9)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3329,7 +3315,7 @@ GameObject:
   - component: {fileID: 1145476424}
   m_Layer: 0
   m_Name: MiddlePiece (10)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3408,7 +3394,7 @@ GameObject:
   - component: {fileID: 1207425321}
   m_Layer: 0
   m_Name: BackEdgePiece (1)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3566,7 +3552,7 @@ GameObject:
   - component: {fileID: 1412434674}
   m_Layer: 0
   m_Name: LeftEdgePiece (7)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3909,7 +3895,7 @@ GameObject:
   - component: {fileID: 1510557252}
   m_Layer: 0
   m_Name: RightEdgePiece
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4264,7 +4250,7 @@ GameObject:
   - component: {fileID: 1594651067}
   m_Layer: 0
   m_Name: MiddlePiece (4)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4468,7 +4454,7 @@ GameObject:
   - component: {fileID: 1637286241}
   m_Layer: 0
   m_Name: RightEdgePiece (1)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4623,7 +4609,7 @@ GameObject:
   - component: {fileID: 1684855476}
   m_Layer: 0
   m_Name: LeftEdgePiece (1)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4689,6 +4675,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684855474}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1701090188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701090190}
+  - component: {fileID: 1701090189}
+  m_Layer: 0
+  m_Name: InsatResetLevelGen
+  m_TagString: CornerTile
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1701090189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701090188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b88b8e909de2c40bb98c8fd26f53eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cornerPieces:
+  - {fileID: 1430295609242339338, guid: 23462ab8aa06a844f9957d59fb47aa4e, type: 3}
+  - {fileID: 8889933348834852460, guid: 523526f333ae7fa4e801a0b992e91ad4, type: 3}
+  - {fileID: 6879922556101879823, guid: efba5f7dfd2106c47a42d367a8cba1af, type: 3}
+  - {fileID: 8958593904616780896, guid: e2818ed5451eeed48afdc85931130390, type: 3}
+  - {fileID: 7132966790275096386, guid: 8eb523604590b9745ad06f0df1737a52, type: 3}
+  - {fileID: 2484338251556250701, guid: 87aafa10531baf24c8b5e952dff002c9, type: 3}
+  - {fileID: 473897824858369359, guid: fff98bf677f8f1c4e9b30621962a5c84, type: 3}
+  edgePieces:
+  - {fileID: 3748465736661693811, guid: 8c40ce67cdcfd624fa085edd1dc67f6c, type: 3}
+  - {fileID: 5393193645272092592, guid: 74937d25eaa08164a85fc6832f46cf97, type: 3}
+  - {fileID: 6018601576225122382, guid: 5ff84319c7f6e3b4a8246750804d9649, type: 3}
+  - {fileID: 7873492035555166686, guid: ba7c2cb593fa624499eeeb575192c956, type: 3}
+  - {fileID: 6269143359193551422, guid: e5205569c294e6240b54cdd75cdbe041, type: 3}
+  - {fileID: 7404805553914891195, guid: 70a820a9fade1c94b9e4a15dee500130, type: 3}
+  - {fileID: 3526117470224972621, guid: 516cf516759ab674a97d0969cd4c34b5, type: 3}
+  - {fileID: 3261237801763584474, guid: fc2ac91d11ef53049b8c8c13d499d900, type: 3}
+  - {fileID: 277389815183850349, guid: d6c5f2ade9e78d54bb032b3ae4189e6e, type: 3}
+  middlePieces:
+  - {fileID: 8068785318956930580, guid: 93197f3c2a246924db5c057bd86b77ca, type: 3}
+  - {fileID: 8423148286523611024, guid: 51ca3ea962ffa8943945c5e026746bc1, type: 3}
+  - {fileID: 6873927762667551576, guid: b2479dca46dfb74419ec5d1d09b5ad7e, type: 3}
+  - {fileID: 4857702458312293038, guid: 04cfd11bb46cb1f4ab5afc4e23801ef5, type: 3}
+  - {fileID: 5148642842611922536, guid: db0c5f97628f87a4ab6cb3da66289024, type: 3}
+  - {fileID: 3300839749470107841, guid: 924299f9f2bc8be4a97ac7eaf73d7cd7, type: 3}
+  - {fileID: 5801993813947577553, guid: 5e09d9b193e4c1143ac5fb61e460e419, type: 3}
+  - {fileID: 3166843791080760564, guid: 88e23ca89eeb3e94dbdd47301ed3d2a5, type: 3}
+--- !u!4 &1701090190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701090188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712056558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,7 +4758,7 @@ GameObject:
   - component: {fileID: 1712056560}
   m_Layer: 0
   m_Name: ForwardEdgePiece (7)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4817,7 +4873,7 @@ GameObject:
   - component: {fileID: 1748403636}
   m_Layer: 0
   m_Name: RightEdgePiece (4)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4928,7 +4984,7 @@ GameObject:
   - component: {fileID: 1780811673}
   m_Layer: 0
   m_Name: LeftEdgePiece (2)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5007,7 +5063,7 @@ GameObject:
   - component: {fileID: 1781986800}
   m_Layer: 0
   m_Name: MiddlePiece (6)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5086,7 +5142,7 @@ GameObject:
   - component: {fileID: 1799417231}
   m_Layer: 0
   m_Name: LeftEdgePiece (5)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5165,7 +5221,7 @@ GameObject:
   - component: {fileID: 1804966897}
   m_Layer: 0
   m_Name: ForwardEdgePiece (1)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5510,7 +5566,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972292712}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bde471340c9694140acf2678e2e98374, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -5622,7 +5678,7 @@ GameObject:
   - component: {fileID: 1972756649}
   m_Layer: 0
   m_Name: MiddlePiece (1)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5938,7 +5994,7 @@ GameObject:
   - component: {fileID: 2027121140}
   m_Layer: 0
   m_Name: ForwardEdgePiece (6)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6081,7 +6137,7 @@ GameObject:
   - component: {fileID: 2124806892}
   m_Layer: 0
   m_Name: MiddlePiece (2)
-  m_TagString: MidPiece
+  m_TagString: MiddleTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6160,7 +6216,7 @@ GameObject:
   - component: {fileID: 2124814563}
   m_Layer: 0
   m_Name: RightEdgePiece (6)
-  m_TagString: EdgePiece
+  m_TagString: EdgeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

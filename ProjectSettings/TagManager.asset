@@ -6,8 +6,8 @@ TagManager:
   tags:
   - CamFocus
   - CornerTile
-  - EdgePiece
-  - MidPiece
+  - EdgeTile
+  - MiddleTile
   layers:
   - Default
   - TransparentFX
