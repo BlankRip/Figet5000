@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CamFocus
+  - CornerTile
+  - EdgePiece
+  - MidPiece
   layers:
   - Default
   - TransparentFX
