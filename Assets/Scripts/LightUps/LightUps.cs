@@ -13,13 +13,14 @@ public abstract class LightUps : MonoBehaviour
     public void OnTouchDown()
     {
         Debug.Log("<color=cyan> Point Audio Played </color>");
+        GameManager.instance.PointAudio();
         GameManager.instance.AddScore();
         switchMats(renderer, changeMatTo);
     }
 
     public void OnLiftOff()
     {
-
+        GameManager.instance.LiftOffAudio();
     }
 
     public void ResetMat()

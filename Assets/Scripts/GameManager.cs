@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public static GameManager instance;
 
     [HideInInspector] public int totalNumberOfLightUps;
+    [SerializeField] AudioSource gameAudioSource;
+    [SerializeField] AudioClip pointGainClip;
+    [SerializeField] AudioClip liftOffClip;
     public int score;
 
     void Start()
@@ -22,5 +25,22 @@ public class GameManager : MonoBehaviour
     {
         score++;
         //Update UI Here
+    }
+
+    public void PointAudio()
+    {
+        if (gameAudioSource != null)
+        {
+            gameAudioSource.Stop();
+            gameAudioSource.PlayOneShot(pointGainClip);
+        }
+    }
+
+    public void LiftOffAudio()
+    {
+        if (gameAudioSource != null)
+        {
+            gameAudioSource.PlayOneShot(liftOffClip);
+        }
     }
 }
