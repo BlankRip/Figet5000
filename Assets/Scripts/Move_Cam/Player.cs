@@ -16,7 +16,16 @@ public class Player : MonoBehaviour
 
     [SerializeField] PlayerSettings currentSettings;
 
-    // Start is called before the first frame update
+
+    Vector3 camForward;
+    Quaternion rayRotationAngle;
+    RaycastHit hitInfo;
+    [Header("For ray cast to not stick to things")]
+    [SerializeField] Transform castPosTop;
+    [SerializeField] Transform castPosBottom;
+    [SerializeField] LayerMask noStickLayers;
+    [SerializeField] float castDistance;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,11 +33,13 @@ public class Player : MonoBehaviour
         mainCam = Camera.main.gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal") * currentSettings.moveSpeed;
         verticaleInput = Input.GetAxis("Vertical") * currentSettings.moveSpeed;
+
+        DoNotStick(castPosTop.position);
+        DoNotStick(castPosBottom.position);
 
         if (Input.GetKeyDown(currentSettings.jumpKey))
             jump = true;
@@ -43,6 +54,9 @@ public class Player : MonoBehaviour
     {
         Movement(horizontalInput, verticaleInput, ref jump);
     }
+
+
+    //Functions----------------------------
 
     void Movement(float horizontalInput, float verticleInput, ref bool jump)
     {
@@ -68,5 +82,42 @@ public class Player : MonoBehaviour
             jump = false;
         }
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref currentVelRef, currentSettings.moveSmothness);
+    }
+
+    // When close to things it will stop motion in that direction
+    void DoNotStick(Vector3 castPos)
+    {
+        if (Camera.main != null)
+            camForward = Camera.main.transform.forward;
+        camForward.y = 0;
+
+        rayRotationAngle = Quaternion.LookRotation(camForward.normalized, Vector3.up);
+
+        Debug.DrawRay(castPos, rayRotationAngle * Vector3.forward * castDistance, Color.red);
+        Debug.DrawRay(castPos, rayRotationAngle * -Vector3.forward * castDistance, Color.green);
+        Debug.DrawRay(castPos, rayRotationAngle * Vector3.right * castDistance, Color.yellow);
+        Debug.DrawRay(castPos, rayRotationAngle * -Vector3.right * castDistance, Color.blue);
+
+        if (Physics.Raycast(castPos, rayRotationAngle * Vector3.forward, out hitInfo, castDistance, noStickLayers))
+        {
+            if (verticaleInput > 0)
+                verticaleInput = 0;
+        }
+        else if (Physics.Raycast(castPos, rayRotationAngle * -Vector3.forward, out hitInfo, castDistance, noStickLayers))
+        {
+            if (verticaleInput < 0)
+                verticaleInput = 0;
+        }
+
+        if (Physics.Raycast(castPos, rayRotationAngle * Vector3.right, out hitInfo, castDistance, noStickLayers))
+        {
+            if (horizontalInput > 0)
+                horizontalInput = 0;
+        }
+        if (Physics.Raycast(castPos, rayRotationAngle * -Vector3.right, out hitInfo, castDistance, noStickLayers))
+        {
+            if (horizontalInput < 0)
+                horizontalInput = 0;
+        }
     }
 }
