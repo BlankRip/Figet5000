@@ -234,9 +234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   givePoint: 1
-  waitForSecBeforeReset: 4
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
+  waitForSecBeforeReset: 5
 --- !u!65 &704407631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -405,8 +405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   givePoint: 1
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   waitForSecBeforeReset: 4
 --- !u!65 &1119860278
 BoxCollider:
@@ -794,8 +794,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   givePoint: 1
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   waitForSecBeforeReset: 4
 --- !u!65 &1561820154
 BoxCollider:
@@ -919,8 +919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   givePoint: 1
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   waitForSecBeforeReset: 0
 --- !u!23 &1676597588
 MeshRenderer:
@@ -1275,8 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
   initialMat: {fileID: 0}
-  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   givePoint: 1
+  changeMatTo: {fileID: 2100000, guid: c700ef878851c6649854f21908cb7500, type: 2}
   waitForSecBeforeReset: 4
 --- !u!65 &2106248015
 BoxCollider:

@@ -7,8 +7,8 @@ public abstract class LightUps : MonoBehaviour
 {
     [HideInInspector] public Renderer renderer;
     [HideInInspector] public Material initialMat;
+    [HideInInspector] public bool givePoint = true;
     public Material changeMatTo;
-    public bool givePoint = true;
 
     public void OnTouchDown()
     {
