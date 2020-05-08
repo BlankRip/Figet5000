@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 238093023736896896, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}
       propertyPath: m_Name
-      value: Capsule
+      value: Capsule Variant 4
       objectReference: {fileID: 0}
     - target: {fileID: 238093023736896898, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}
@@ -20,17 +20,17 @@ PrefabInstance:
     - target: {fileID: 238093023736896900, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238093023736896900, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238093023736896900, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238093023736896900, guid: 8c3dbe87eb739d143bceadf9c1f7b25c,
         type: 3}

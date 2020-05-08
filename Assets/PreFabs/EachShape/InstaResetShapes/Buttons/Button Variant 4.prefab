@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3779711448275839744, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button Variant 4
       objectReference: {fileID: 0}
     - target: {fileID: 3779711448275839746, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}
@@ -20,17 +20,17 @@ PrefabInstance:
     - target: {fileID: 3779711448275839804, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3779711448275839804, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3779711448275839804, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3779711448275839804, guid: 84b8fa53c2e95654b868c81a9ee343fe,
         type: 3}

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3984573680687815219, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder
+      value: Cylinder Variant 4
       objectReference: {fileID: 0}
     - target: {fileID: 3984573680687815221, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}
@@ -20,17 +20,17 @@ PrefabInstance:
     - target: {fileID: 3984573680687815223, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3984573680687815223, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3984573680687815223, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3984573680687815223, guid: d3806a900052b4f4a85c49052d6e248f,
         type: 3}

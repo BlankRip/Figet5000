@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3348981271600540262, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}
       propertyPath: m_Name
-      value: LargeCube
+      value: LargeCube Variant 3
       objectReference: {fileID: 0}
     - target: {fileID: 4806082559919435842, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}
@@ -20,17 +20,17 @@ PrefabInstance:
     - target: {fileID: 6983956903572923210, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983956903572923210, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983956903572923210, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983956903572923210, guid: cc56b094e9f24b74ca7811c31f346d84,
         type: 3}

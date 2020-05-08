@@ -15,22 +15,22 @@ PrefabInstance:
     - target: {fileID: 7686908683442438810, guid: d8d4b1e221beaa2498f7b6cd4d955061,
         type: 3}
       propertyPath: m_Name
-      value: Smatries
+      value: Smatries Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 8306483297335911763, guid: d8d4b1e221beaa2498f7b6cd4d955061,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8306483297335911763, guid: d8d4b1e221beaa2498f7b6cd4d955061,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8306483297335911763, guid: d8d4b1e221beaa2498f7b6cd4d955061,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8306483297335911763, guid: d8d4b1e221beaa2498f7b6cd4d955061,
         type: 3}
