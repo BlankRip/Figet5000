@@ -27,7 +27,7 @@ public class TimerReset : LightUps
         {
             switchBack = false;
             OnTouchDown();
-            givePoint = true;
+            givePoint = false;
         }
     }
 
