@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
 
+    public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
     [SerializeField] AudioSource gameAudioSource;
     [SerializeField] AudioClip pointGainClip;
