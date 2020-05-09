@@ -6,12 +6,15 @@ public class NeverReset : LightUps
 {
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        if (this.enabled == false)
+            return;
+        else
+            renderer = GetComponent<Renderer>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") && givePoint)
+        if (this.enabled == true && other.gameObject.CompareTag("Player") && givePoint)
         {
             OnTouchDown();
             givePoint = false;
@@ -20,9 +23,9 @@ public class NeverReset : LightUps
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             OnLiftOff();
         }

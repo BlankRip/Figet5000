@@ -6,21 +6,26 @@ public class InstaReset : LightUps
 {
     void Start()
     {
-        renderer = GetComponent<Renderer>();
-        initialMat = renderer.material;
+        if (this.enabled == false)
+            return;
+        else
+        {
+            renderer = GetComponent<Renderer>();
+            initialMat = renderer.material;
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             OnTouchDown();
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             OnLiftOff();
             ResetMat();
