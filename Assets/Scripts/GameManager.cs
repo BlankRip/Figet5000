@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        totalNumberOfLightUps = FindObjectsOfType<LightUps>().Length;
+        totalNumberOfLightUps = FindObjectsOfType<InstaReset>().Length;
         Debug.Log(totalNumberOfLightUps);
     }
 
