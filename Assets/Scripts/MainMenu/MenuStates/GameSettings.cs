@@ -6,7 +6,7 @@ public class GameSettings : MenuState
 {
     public override void Initialize(MainMenu theMenu)
     {
-        pannel = theMenu.gameSettingsPannel;
+        pannel = theMenu.gameSettingsPanel;
         base.Initialize(theMenu);
     }
 }

@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Credits : MonoBehaviour
+public class Credits : MenuState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Initialize(MainMenu theMenu)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        pannel = theMenu.creditsPanel;
+        base.Initialize(theMenu);
     }
 }

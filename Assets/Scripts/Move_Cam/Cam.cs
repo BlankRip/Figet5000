@@ -40,6 +40,8 @@ public class Cam : MonoBehaviour
         Cursor.visible = false;                                     //Setting cursor to not be visible when playing the game
         Cursor.lockState = CursorLockMode.Locked;                   //Locking the cursor to the center of the screen so that it does not move out of the window
         initialMovementSmoothness = smoothCamMovement;
+        if(PlayerPrefs.HasKey("MouseSens"))
+            mouseSensitivity = PlayerPrefs.GetFloat("MouseSens");
     }
 
     void FixedUpdate()

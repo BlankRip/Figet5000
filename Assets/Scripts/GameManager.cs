@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
-    [SerializeField] AudioSource gameAudioSource;
+    public AudioSource gameAudioSource;
     [SerializeField] AudioClip pointGainClip;
     [SerializeField] AudioClip liftOffClip;
     public int score;
