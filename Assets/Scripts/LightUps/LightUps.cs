@@ -7,19 +7,20 @@ public abstract class LightUps : MonoBehaviour
 {
     [HideInInspector] public Renderer renderer;
     [HideInInspector] public Material initialMat;
+    [HideInInspector] public bool givePoint = true;
     public Material changeMatTo;
-    public bool givePoint = true;
 
     public void OnTouchDown()
     {
         Debug.Log("<color=cyan> Point Audio Played </color>");
+        GameManager.instance.PointAudio();
         GameManager.instance.AddScore();
         switchMats(renderer, changeMatTo);
     }
 
     public void OnLiftOff()
     {
-
+        GameManager.instance.LiftOffAudio();
     }
 
     public void ResetMat()

@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
 
+    public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
+    [SerializeField] AudioSource gameAudioSource;
+    [SerializeField] AudioClip pointGainClip;
+    [SerializeField] AudioClip liftOffClip;
     public int score;
 
     void Start()
@@ -14,7 +18,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        totalNumberOfLightUps = FindObjectsOfType<LightUps>().Length;
+        totalNumberOfLightUps = FindObjectsOfType<InstaReset>().Length;
         Debug.Log(totalNumberOfLightUps);
     }
 
@@ -22,5 +26,22 @@ public class GameManager : MonoBehaviour
     {
         score++;
         //Update UI Here
+    }
+
+    public void PointAudio()
+    {
+        if (gameAudioSource != null)
+        {
+            gameAudioSource.Stop();
+            gameAudioSource.PlayOneShot(pointGainClip);
+        }
+    }
+
+    public void LiftOffAudio()
+    {
+        if (gameAudioSource != null)
+        {
+            gameAudioSource.PlayOneShot(liftOffClip);
+        }
     }
 }

@@ -10,9 +10,14 @@ public class TimerReset : LightUps
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
-        initialMat = renderer.material;
-        runReset = true;
+        if (this.enabled == false)
+            return;
+        else
+        {
+            renderer = GetComponent<Renderer>();
+            initialMat = renderer.material;
+            runReset = true;
+        }
     }
 
     private void Update()
@@ -21,19 +26,19 @@ public class TimerReset : LightUps
             ResetMat();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") && givePoint)
+        if (this.enabled == true && other.gameObject.CompareTag("Player") && givePoint)
         {
             switchBack = false;
             OnTouchDown();
-            givePoint = true;
+            givePoint = false;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             OnLiftOff();
             if (runReset && renderer.material != initialMat)

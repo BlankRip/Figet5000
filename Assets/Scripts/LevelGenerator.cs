@@ -17,9 +17,9 @@ public class LevelGenerator : MonoBehaviour
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("CornerTile");
         LoopSelectSpawn(cornerPieces, spawnPoints);
-        spawnPoints = GameObject.FindGameObjectsWithTag("MiddleTile");
-        LoopSelectSpawn(edgePieces, spawnPoints);
         spawnPoints = GameObject.FindGameObjectsWithTag("EdgeTile");
+        LoopSelectSpawn(edgePieces, spawnPoints);
+        spawnPoints = GameObject.FindGameObjectsWithTag("MiddleTile");
         LoopSelectSpawn(middlePieces, spawnPoints);
     }
 

@@ -6,12 +6,17 @@ public class DeathReset : LightUps
 {
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        if (this.enabled == false)
+            return;
+        else
+        {
+            renderer = GetComponent<Renderer>();
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             if (givePoint)
             {
@@ -26,9 +31,9 @@ public class DeathReset : LightUps
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {
             OnLiftOff();
         }
