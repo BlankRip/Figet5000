@@ -10,6 +10,7 @@ public class ManageGameSettings : MonoBehaviour
     [SerializeField] Slider mouseSensitivitySlider;
     [SerializeField] TextMeshProUGUI volumeVale;
     [SerializeField] TextMeshProUGUI mouseSensValue;
+    [SerializeField] AudioSource[] audioSources;
 
     private void Start() 
     {
@@ -21,14 +22,16 @@ public class ManageGameSettings : MonoBehaviour
 
     public void UpdateGameVolume()
     {
+        volumeSlider.value = Mathf.Round(volumeSlider.value * 100f) / 100f;
         PlayerPrefs.SetFloat("GameVolume", volumeSlider.value);
         volumeVale.text = volumeSlider.value.ToString();
-        if(GameManager.instance != null)
-            GameManager.instance.gameAudioSource.volume = PlayerPrefs.GetFloat("GameVolume");
+        for (int i = 0; i < audioSources.Length - 1; i++)
+            audioSources[i].volume = volumeSlider.value;
     }
 
     public void UpdateMouseSens()
     {
+        mouseSensitivitySlider.value = Mathf.Round(mouseSensitivitySlider.value * 100f) / 100f;
         PlayerPrefs.SetFloat("MouseSens", mouseSensitivitySlider.value);
         mouseSensValue.text = mouseSensitivitySlider.value.ToString();
     }

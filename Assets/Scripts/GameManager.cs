@@ -6,12 +6,23 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
 
-    public string gameMode;
+    [SerializeField] LevelSelections currentLevelSttings;
+    [HideInInspector] public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
+
+
     public AudioSource gameAudioSource;
     [SerializeField] AudioClip pointGainClip;
     [SerializeField] AudioClip liftOffClip;
     public int score;
+
+    void Awake() 
+    {
+        gameMode = currentLevelSttings.gameMode;
+        Instantiate(currentLevelSttings.selectedLayout, Vector3.zero, Quaternion.identity);
+        if(PlayerPrefs.HasKey("GameVolume"))
+            gameAudioSource.volume = PlayerPrefs.GetFloat("GameVolume");
+    }
 
     void Start()
     {
