@@ -26,7 +26,7 @@ public class TimerReset : LightUps
             ResetMat();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (this.enabled == true && other.gameObject.CompareTag("Player") && givePoint)
         {
@@ -36,7 +36,7 @@ public class TimerReset : LightUps
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (this.enabled == true && other.gameObject.CompareTag("Player"))
         {

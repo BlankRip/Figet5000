@@ -8,6 +8,7 @@ TagManager:
   - CornerTile
   - EdgeTile
   - MiddleTile
+  - FadeOut
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,7 @@ public class NeverReset : LightUps
             OnTouchDown();
             givePoint = false;
             if (GameManager.instance.score >= GameManager.instance.totalNumberOfLightUps)
-                Debug.Log("<color=blue> Move To Next scene </color>");
+                GameManager.instance.FadeToNextScene();
         }
     }
 

@@ -7,7 +7,7 @@ public class Cam : MonoBehaviour
     [Header("Things needed to move camera around")]
     Transform target;
     [Tooltip("The mouse sensitivity, AKA rotation speed multiplier")]
-    [SerializeField] float mouseSensitivity = 2;
+    public float mouseSensitivity = 2;
     [Tooltip("Minimum vertical movement possible")]
     [SerializeField] float verticalClampMin = -15.0f;
     [Tooltip("Maximum vertical movement possible")]
@@ -34,35 +34,40 @@ public class Cam : MonoBehaviour
     Vector3 desiredCameraDir;         //The expected camera direction
     RaycastHit hit;                   //Object that stores details of the objects it hit during the linear cast
 
-    void Awake()
+    void Start()
     {
         target = GameObject.FindGameObjectWithTag("CamFocus").transform;
         Cursor.visible = false;                                     //Setting cursor to not be visible when playing the game
         Cursor.lockState = CursorLockMode.Locked;                   //Locking the cursor to the center of the screen so that it does not move out of the window
         initialMovementSmoothness = smoothCamMovement;
+        if(PlayerPrefs.HasKey("MouseSens"))
+            mouseSensitivity = PlayerPrefs.GetFloat("MouseSens");
     }
 
     void FixedUpdate()
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;               //Getting horizontal movement input of the mouse
-        mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivity;               //Getting vertical movement input of the mouse
-        mouseY = Mathf.Clamp(mouseY, verticalClampMin, verticalClampMax);    //Clamping the vertical value    //Setting object to always look at target
-
-        // Clamping camera 
-        desiredCameraDir = Quaternion.Euler(mouseY, mouseX, 0) * Vector3.back;       //The direction the camera will be facing
-
-        //// Check if there is a wall or object between the camera and move the camera close to the target if so else set the camera to be at the normal distance from the target
-        if (Physics.Raycast(target.transform.position, desiredCameraDir, out hit, maxDistance, WallClipLayerMask))
+        if(!GameManager.instance.paused)
         {
-            distance = Mathf.Clamp((hit.distance - 0.2f), minDistance, maxDistance);
-            smoothCamMovement = 5;
+            mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;               //Getting horizontal movement input of the mouse
+            mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivity;               //Getting vertical movement input of the mouse
+            mouseY = Mathf.Clamp(mouseY, verticalClampMin, verticalClampMax);    //Clamping the vertical value    //Setting object to always look at target
+
+            // Clamping camera 
+            desiredCameraDir = Quaternion.Euler(mouseY, mouseX, 0) * Vector3.back;       //The direction the camera will be facing
+
+            //// Check if there is a wall or object between the camera and move the camera close to the target if so else set the camera to be at the normal distance from the target
+            if (Physics.Raycast(target.transform.position, desiredCameraDir, out hit, maxDistance, WallClipLayerMask))
+            {
+                distance = Mathf.Clamp((hit.distance - 0.2f), minDistance, maxDistance);
+                smoothCamMovement = 5;
+            }
+            else
+            {
+                distance = maxDistance;
+                smoothCamMovement = initialMovementSmoothness;
+            }
+            transform.position = Vector3.Lerp(transform.position, desiredCameraDir * distance + target.position, Time.deltaTime * smoothCamMovement);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-desiredCameraDir), Time.deltaTime * smoothCamRotation);
         }
-        else
-        {
-            distance = maxDistance;
-            smoothCamMovement = initialMovementSmoothness;
-        }
-        transform.position = Vector3.Lerp(transform.position, desiredCameraDir * distance + target.position, Time.deltaTime * smoothCamMovement);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-desiredCameraDir), Time.deltaTime * smoothCamRotation);
     }
 }

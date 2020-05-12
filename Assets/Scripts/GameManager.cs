@@ -1,31 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
 
-    public string gameMode;
+    [SerializeField] LevelSelections currentLevelSttings;
+    [SerializeField] GameObject scoreObj;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [HideInInspector] public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
-    [SerializeField] AudioSource gameAudioSource;
+    [HideInInspector] public bool paused;
+    [SerializeField] GameObject fadeOut;
+
+
+    public AudioSource gameAudioSource;
     [SerializeField] AudioClip pointGainClip;
     [SerializeField] AudioClip liftOffClip;
     public int score;
 
-    void Start()
+    void Awake() 
     {
         if (instance == null)
             instance = this;
 
+        gameMode = currentLevelSttings.gameMode;
+        scoreObj.SetActive(currentLevelSttings.showScore);
+        Instantiate(currentLevelSttings.selectedLayout, Vector3.zero, Quaternion.identity);
+        if(PlayerPrefs.HasKey("GameVolume"))
+            gameAudioSource.volume = PlayerPrefs.GetFloat("GameVolume");
+    }
+
+    void Start()
+    {
+        paused = false;
         totalNumberOfLightUps = FindObjectsOfType<InstaReset>().Length;
+        scoreText.text = score.ToString();
         Debug.Log(totalNumberOfLightUps);
     }
 
     public void AddScore()
     {
         score++;
-        //Update UI Here
+        scoreText.text = score.ToString();
     }
 
     public void PointAudio()
@@ -43,5 +63,10 @@ public class GameManager : MonoBehaviour
         {
             gameAudioSource.PlayOneShot(liftOffClip);
         }
+    }
+
+    public void FadeToNextScene()
+    {
+        fadeOut.SetActive(true);
     }
 }
