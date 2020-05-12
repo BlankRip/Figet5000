@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject gameSettingsPanel;
     public GameObject creditsPanel;
     public GameObject controlsPanel;
+    [SerializeField] GameObject fadeOut;
 
     Stack<MenuState> menuStack;
 
@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("<color=green> Play Click Sound</color>");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        fadeOut.SetActive(true);
     }
 
     void SwitchState(MenuState state)
