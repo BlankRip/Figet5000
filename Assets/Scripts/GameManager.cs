@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] LevelSelections currentLevelSttings;
     [HideInInspector] public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
+    [HideInInspector] public bool paused;
 
 
     public AudioSource gameAudioSource;
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     void Awake() 
     {
+        if (instance == null)
+            instance = this;
+
         gameMode = currentLevelSttings.gameMode;
         Instantiate(currentLevelSttings.selectedLayout, Vector3.zero, Quaternion.identity);
         if(PlayerPrefs.HasKey("GameVolume"))
@@ -26,9 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (instance == null)
-            instance = this;
-
+        paused = false;
         totalNumberOfLightUps = FindObjectsOfType<InstaReset>().Length;
         Debug.Log(totalNumberOfLightUps);
     }
