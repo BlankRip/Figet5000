@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public string gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
     [HideInInspector] public bool paused;
+    [SerializeField] GameObject fadeOut;
 
 
     public AudioSource gameAudioSource;
@@ -56,5 +57,10 @@ public class GameManager : MonoBehaviour
         {
             gameAudioSource.PlayOneShot(liftOffClip);
         }
+    }
+
+    public void FadeToNextScene()
+    {
+        fadeOut.SetActive(true);
     }
 }

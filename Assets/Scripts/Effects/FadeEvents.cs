@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FadeEvents : MonoBehaviour
 {
+    [SerializeField] int sceneIndex;
+
     public void SelfDisable()
     {
         gameObject.SetActive(false);
@@ -12,6 +14,6 @@ public class FadeEvents : MonoBehaviour
 
     public void MoveNextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
