@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject[] cornerPieces;
     [SerializeField] GameObject[] edgePieces;
     [SerializeField] GameObject[] middlePieces;
+    [SerializeField] GameObject[] balls;
 
     GameObject[] spawnPoints;
     int pick;
@@ -21,6 +22,8 @@ public class LevelGenerator : MonoBehaviour
         LoopSelectSpawn(edgePieces, spawnPoints);
         spawnPoints = GameObject.FindGameObjectsWithTag("MiddleTile");
         LoopSelectSpawn(middlePieces, spawnPoints);
+        spawnPoints = GameObject.FindGameObjectsWithTag("BallSpot");
+        LoopSelectSpawn(balls, spawnPoints);
     }
 
     void LoopSelectSpawn(GameObject[] spawnObjs, GameObject[] spawnPoints)

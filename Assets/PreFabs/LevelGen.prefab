@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8629701920325731832}
   - component: {fileID: 8629701920325731835}
   m_Layer: 0
-  m_Name: InsatResetLevelGen
+  m_Name: LevelGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,3 +102,6 @@ MonoBehaviour:
   - {fileID: 1508221733573323323, guid: 4596f79b6a634b64498843ad137330cc, type: 3}
   - {fileID: 3065747347929933240, guid: a34effe89ad5401439ca55d64be3f465, type: 3}
   - {fileID: 892258111231720653, guid: 0735fe9fdb4b01b459d6e7d513678d55, type: 3}
+  balls:
+  - {fileID: 851089922748003054, guid: 09888b22b1a39224f85534dc338814d7, type: 3}
+  - {fileID: 851089922748003054, guid: 09888b22b1a39224f85534dc338814d7, type: 3}

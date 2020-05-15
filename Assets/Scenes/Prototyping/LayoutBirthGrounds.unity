@@ -24192,7 +24192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1534277950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24205,8 +24205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c216cf47ad86c204e87478f6eb0f980b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevelSttings: {fileID: 0}
+  scoreObj: {fileID: 0}
+  scoreText: {fileID: 0}
   gameMode: Never
   totalNumberOfLightUps: 0
+  paused: 0
+  fadeOut: {fileID: 0}
   gameAudioSource: {fileID: 1892303141}
   pointGainClip: {fileID: 8300000, guid: 502c35d5d78c24a478d44da2e0faec96, type: 3}
   liftOffClip: {fileID: 8300000, guid: 82c46e801b46075409468a6509dec328, type: 3}
@@ -32117,6 +32122,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LayoutStuff 4x4 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 7425898913192424622, guid: f6264575e5e97fe4ab34f7dec6f0124e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6264575e5e97fe4ab34f7dec6f0124e, type: 3}
 --- !u!1001 &8017200220252638710
@@ -32186,11 +32196,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LayoutStuff 3x3 (34)
       objectReference: {fileID: 0}
-    - target: {fileID: 8017200221068219047, guid: fcbcfb4c8892f6449bf433358c93df91,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcbcfb4c8892f6449bf433358c93df91, type: 3}
 --- !u!1001 &8629701920818271862
@@ -32259,11 +32264,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelGen
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629701920325731834, guid: d57ae147f5b2e7c4db4f908fdfd47f4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d57ae147f5b2e7c4db4f908fdfd47f4c, type: 3}
