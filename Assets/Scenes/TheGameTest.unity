@@ -1027,7 +1027,7 @@ PrefabInstance:
     - target: {fileID: 8995591432855764072, guid: 1a831364c0ac0984fb4567ef1997461e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8995591432855764075, guid: 1a831364c0ac0984fb4567ef1997461e,
         type: 3}
@@ -3048,7 +3048,6 @@ GameObject:
   - component: {fileID: 1542759718}
   - component: {fileID: 1542759722}
   - component: {fileID: 1542759723}
-  - component: {fileID: 1542759724}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3167,19 +3166,6 @@ MonoBehaviour:
   maxDisplacement: 0.2
   shakeDecay: 1
   shakeFrequency: 100
---- !u!114 &1542759724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542759717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87e963f769b2ed4dadb9132b353b585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeLimit: 5
 --- !u!1 &1581043052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,6 +4375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSettings: {fileID: 11400000, guid: 005d64c81f4948b4b836d1273f6cf686, type: 2}
+  currentVelMag: 0
   castPosTop: {fileID: 951921516}
   castPosBottom: {fileID: 127712593}
   noStickLayers:
