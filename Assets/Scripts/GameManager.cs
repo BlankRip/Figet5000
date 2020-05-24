@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public static GameManager instance;
 
     [SerializeField] LevelSelections currentLevelSttings;
+    [SerializeField] Vector3 playerSpawnPos = new Vector3(0, 1.6f, 0);
     [SerializeField] GameObject scoreObj;
     [SerializeField] TextMeshProUGUI scoreText;
     [HideInInspector] public string gameMode;
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
         Instantiate(currentLevelSttings.selectedLayout, Vector3.zero, Quaternion.identity);
         if(PlayerPrefs.HasKey("GameVolume"))
             gameAudioSource.volume = PlayerPrefs.GetFloat("GameVolume");
+        Instantiate(currentLevelSttings.selectedPlayer, playerSpawnPos, Quaternion.identity);
+        
     }
 
     void Start()
