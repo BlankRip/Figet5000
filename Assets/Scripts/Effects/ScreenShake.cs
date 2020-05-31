@@ -14,7 +14,7 @@ public class ScreenShake : MonoBehaviour
     bool isShaking;
     bool impactfulShake;
 
-    void Start()
+    void Awake()
     {
         if(instance == null)
             instance = this;

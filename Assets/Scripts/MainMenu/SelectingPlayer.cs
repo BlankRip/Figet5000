@@ -17,7 +17,7 @@ public class SelectingPlayer : MonoBehaviour
 
     public void ChangePlayerUp()
     {
-        if(currentSelected < displaySetObjs.Length)
+        if(currentSelected < displaySetObjs.Length - 1)
             currentSelected++;
         else
             currentSelected = 0;
