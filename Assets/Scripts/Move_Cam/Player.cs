@@ -9,12 +9,11 @@ public class Player : MonoBehaviour
     Vector3 targetVel;
     Vector3 currentVelRef;
     Quaternion turnAngle;
-    float horizontalInput;
-    float verticaleInput;
-    bool jump;
-    bool sprinting;
+    float horizontalInput, verticaleInput;
+    bool jump, sprinting;
 
     [SerializeField] PlayerSettings currentSettings;
+    [SerializeField] float currentVelMag;
 
 
     Vector3 camForward;
@@ -53,6 +52,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Movement(horizontalInput, verticaleInput, ref jump);
+        currentVelMag = rb.velocity.y;
     }
 
 
@@ -119,5 +119,13 @@ public class Player : MonoBehaviour
             if (horizontalInput < 0)
                 horizontalInput = 0;
         }
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        //Debug.Log(currentVelMag);
+        //Debug.Log(Mathf.Abs((int)(currentVelMag/20)) - 0.7f);
+        if(currentVelMag < -30)
+            ScreenShake.instance.ShakeCamera(0.5f, Mathf.Abs((int) (currentVelMag/20)) - 0.7f, true);
     }
 }
