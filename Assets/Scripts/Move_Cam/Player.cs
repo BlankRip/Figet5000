@@ -4,41 +4,34 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody rb;
+    private CharacterController cc;
     GameObject mainCam;
-    Vector3 targetVel;
     Vector3 currentVelRef;
     Quaternion turnAngle;
     float horizontalInput, verticaleInput;
     bool jump, sprinting;
+    private bool grounded;
+    private Vector3 velocity;
 
     [SerializeField] PlayerSettings currentSettings;
     [SerializeField] float currentVelMag;
 
-
-    Vector3 camForward;
-    Quaternion rayRotationAngle;
-    RaycastHit hitInfo;
-    [Header("For ray cast to not stick to things")]
-    [SerializeField] Transform castPosTop;
-    [SerializeField] Transform castPosBottom;
-    [SerializeField] LayerMask noStickLayers;
-    [SerializeField] float castDistance;
-
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
         currentVelRef = Vector3.zero;
         mainCam = Camera.main.gameObject;
+
+        if(currentSettings.gravity > 0)
+            currentSettings.gravity = currentSettings.gravity * -1;
     }
 
     void Update()
     {
+        grounded = cc.isGrounded;
+
         horizontalInput = Input.GetAxis("Horizontal") * currentSettings.moveSpeed;
         verticaleInput = Input.GetAxis("Vertical") * currentSettings.moveSpeed;
-
-        DoNotStick(castPosTop.position);
-        DoNotStick(castPosBottom.position);
 
         if (Input.GetKeyDown(currentSettings.jumpKey))
             jump = true;
@@ -47,79 +40,40 @@ public class Player : MonoBehaviour
             sprinting = true;
         if (Input.GetKeyUp(KeyCode.LeftShift))
             sprinting = false;
-    }
 
-    private void FixedUpdate()
-    {
         Movement(horizontalInput, verticaleInput, ref jump);
-        currentVelMag = rb.velocity.y;
+        currentVelMag = cc.velocity.y;
     }
 
 
     //Functions----------------------------
 
-    void Movement(float horizontalInput, float verticleInput, ref bool jump)
-    {
-        if(sprinting)
-        {
+    void Movement(float horizontalInput, float verticleInput, ref bool jump) {
+        if(sprinting) {
             horizontalInput = horizontalInput * currentSettings.sprintSpeedMultiplier;
             verticleInput = verticleInput * currentSettings.sprintSpeedMultiplier;
         }
 
-        targetVel = new Vector3(horizontalInput, rb.velocity.y, verticleInput);
-        targetVel = transform.rotation * targetVel;
+        Vector3 move = transform.forward * verticleInput + transform.right * horizontalInput;
+        cc.Move(move * Time.deltaTime);
 
-        if (horizontalInput != 0 || verticaleInput != 0)
-        {
-            turnAngle = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
-            rb.rotation = Quaternion.Slerp(transform.rotation, turnAngle, currentSettings.rotationSpeed);
-        }
+        if(grounded && velocity.y < 0)
+            velocity.y = -2;
 
-        
-        if(jump)
-        {
-            rb.AddForce(Vector3.up * currentSettings.jumpForce, ForceMode.Impulse);
+        if(jump) {
+            velocity.y = Mathf.Sqrt(currentSettings.jumpHight * -2 * currentSettings.gravity);
             jump = false;
         }
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref currentVelRef, currentSettings.moveSmothness);
-    }
+        velocity.y += currentSettings.gravity * Time.deltaTime;
+        cc.Move(velocity * Time.deltaTime);
 
-    // When close to things it will stop motion in that direction
-    void DoNotStick(Vector3 castPos)
-    {
-        if (Camera.main != null)
-            camForward = Camera.main.transform.forward;
-        camForward.y = 0;
-
-        rayRotationAngle = Quaternion.LookRotation(camForward.normalized, Vector3.up);
-
-        Debug.DrawRay(castPos, rayRotationAngle * Vector3.forward * castDistance, Color.red);
-        Debug.DrawRay(castPos, rayRotationAngle * -Vector3.forward * castDistance, Color.green);
-        Debug.DrawRay(castPos, rayRotationAngle * Vector3.right * castDistance, Color.yellow);
-        Debug.DrawRay(castPos, rayRotationAngle * -Vector3.right * castDistance, Color.blue);
-
-        if (Physics.Raycast(castPos, rayRotationAngle * Vector3.forward, out hitInfo, castDistance, noStickLayers))
-        {
-            if (verticaleInput > 0)
-                verticaleInput = 0;
-        }
-        else if (Physics.Raycast(castPos, rayRotationAngle * -Vector3.forward, out hitInfo, castDistance, noStickLayers))
-        {
-            if (verticaleInput < 0)
-                verticaleInput = 0;
-        }
-
-        if (Physics.Raycast(castPos, rayRotationAngle * Vector3.right, out hitInfo, castDistance, noStickLayers))
-        {
-            if (horizontalInput > 0)
-                horizontalInput = 0;
-        }
-        if (Physics.Raycast(castPos, rayRotationAngle * -Vector3.right, out hitInfo, castDistance, noStickLayers))
-        {
-            if (horizontalInput < 0)
-                horizontalInput = 0;
+        //Rotation
+        if (horizontalInput != 0 || verticaleInput != 0) {
+            turnAngle = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, turnAngle, currentSettings.rotationSpeed * Time.deltaTime);
         }
     }
+
 
     private void OnTriggerEnter(Collider other) 
     {

@@ -44,7 +44,7 @@ public class Cam : MonoBehaviour
             mouseSensitivity = PlayerPrefs.GetFloat("MouseSens");
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(!GameManager.instance.paused)
         {

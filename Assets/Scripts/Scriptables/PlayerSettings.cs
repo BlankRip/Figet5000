@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerSettings : ScriptableObject
 {
     public float moveSpeed;
-    [Range(0, 1)] public float moveSmothness;
     [Range(1, 4)] public float sprintSpeedMultiplier;
-    [Range(0, 1)] public float rotationSpeed;
-    public float jumpForce;
+    public float rotationSpeed;
+    public float jumpHight;
+    public float gravity;
     public KeyCode jumpKey = KeyCode.Space;
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  moveSmothness: 0.2
   sprintSpeedMultiplier: 2.68
-  rotationSpeed: 0.2
-  jumpForce: 5
+  rotationSpeed: 10
+  jumpHight: 2
+  gravity: -9.81
   jumpKey: 32
