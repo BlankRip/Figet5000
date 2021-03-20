@@ -15,6 +15,9 @@ MonoBehaviour:
   moveSpeed: 10
   sprintSpeedMultiplier: 2.7
   rotationSpeed: 10
+  jumpKey: 32
   jumpHight: 3
   gravity: -9.81
-  jumpKey: 32
+  dashTime: 0.2
+  dashMultiplier: 5
+  useDash: 1

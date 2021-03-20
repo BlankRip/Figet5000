@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private bool grounded;
     private Vector3 velocity;
     private ShakeTrigger shake;
+    private bool dashin;
+    private float currentDTime;
 
     [SerializeField] PlayerSettings currentSettings;
 
@@ -21,6 +23,9 @@ public class Player : MonoBehaviour
         shake = GetComponentInChildren<ShakeTrigger>();
         currentVelRef = Vector3.zero;
         mainCam = Camera.main.gameObject;
+
+        dashin = false;
+        currentDTime = currentSettings.dashTime;
 
         if(currentSettings.gravity > 0)
             currentSettings.gravity = currentSettings.gravity * -1;
@@ -35,10 +40,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(currentSettings.jumpKey))
             jump = true;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-            sprinting = true;
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-            sprinting = false;
+        if(currentSettings.useDash) {
+            if(!dashin && Input.GetKeyDown(KeyCode.LeftShift))
+                dashin = true;
+        } else {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                sprinting = true;
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                sprinting = false;
+        }
 
         Movement(horizontalInput, verticaleInput, ref jump);
     }
@@ -52,6 +62,14 @@ public class Player : MonoBehaviour
         }
 
         Vector3 move = transform.forward * verticleInput + transform.right * horizontalInput;
+        if(dashin) {
+            move = move * currentSettings.dashMultiplier;
+            currentDTime -= Time.deltaTime;
+            if(currentDTime <= 0) {
+                dashin = false;
+                currentDTime = currentSettings.dashTime;
+            }
+        }
         cc.Move(move * Time.deltaTime);
 
         if(grounded && velocity.y < 0)
