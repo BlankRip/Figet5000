@@ -7,6 +7,6 @@ public class LevelSelections : ScriptableObject
 {
     public GameObject selectedPlayer;
     public GameObject selectedLayout;
-    public string gameMode;
+    public GameMode gameMode;
     public bool showScore;
 }

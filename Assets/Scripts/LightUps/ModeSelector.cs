@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameMode { Insta, Timer, Death, Never }
+
 public class ModeSelector : MonoBehaviour
 {
     InstaReset instantMode;
@@ -10,27 +12,24 @@ public class ModeSelector : MonoBehaviour
     NeverReset neverMode;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        if(GameManager.instance.gameMode == "Insta")
-        {
-            instantMode = GetComponent<InstaReset>();
-            instantMode.enabled = true;
-        }
-        else if (GameManager.instance.gameMode == "Timer")
-        {
-            timerMode = GetComponent<TimerReset>();
-            timerMode.enabled = true;
-        }
-        else if (GameManager.instance.gameMode == "Death")
-        {
-            deathMode = GetComponent<DeathReset>();
-            deathMode.enabled = true;
-        }
-        else if (GameManager.instance.gameMode == "Never")
-        {
-            neverMode = GetComponent<NeverReset>();
-            neverMode.enabled = true;
+    void Start() {
+        switch (GameManager.instance.gameMode) {
+            case GameMode.Insta:
+                instantMode = GetComponent<InstaReset>();
+                instantMode.enabled = true;
+                break;
+            case GameMode.Timer:
+                timerMode = GetComponent<TimerReset>();
+                timerMode.enabled = true;
+                break;
+            case GameMode.Death:
+                deathMode = GetComponent<DeathReset>();
+                deathMode.enabled = true;
+                break;
+            case GameMode.Never:
+                neverMode = GetComponent<NeverReset>();
+                neverMode.enabled = true;
+                break;
         }
     }
 }

@@ -10,62 +10,51 @@ public class BuildLevelChoise : MonoBehaviour
 [SerializeField] GameObject fiveX;
 [SerializeField] GameObject sevenX;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         currentSettings.selectedLayout = threeX;
         currentSettings.showScore = true;
-        currentSettings.gameMode = "Never";
+        currentSettings.gameMode = GameMode.Never;
     }
 
 
     //For Game Mode selection buttons
-    public void InstantSwitchSelected()
-    {
-        currentSettings.gameMode = "Insta";
+    public void InstantSwitchSelected() {
+        currentSettings.gameMode = GameMode.Insta;
     }
 
-    public void UltimateFigetSelected()
-    {
-        currentSettings.gameMode = "Timer";
+    public void UltimateFigetSelected() {
+        currentSettings.gameMode = GameMode.Timer;
     }
 
-    public void PainterFigetSelected()
-    {
-        currentSettings.gameMode = "Never";
+    public void PainterFigetSelected() {
+        currentSettings.gameMode = GameMode.Never;
     }
 
 
     //For Level Size Selection
-    public void ThreeXSelected()
-    {
+    public void ThreeXSelected() {
         currentSettings.selectedLayout = threeX;
     }
 
-    public void FourXSelected()
-    {
+    public void FourXSelected() {
         currentSettings.selectedLayout = fourX;
     }
 
-    public void FiveXSelected()
-    {
+    public void FiveXSelected() {
         currentSettings.selectedLayout = fiveX;
     }
 
-    public void SevenXSelected()
-    {
+    public void SevenXSelected() {
         currentSettings.selectedLayout = sevenX;
     }
 
 
     //For Show Score Setting
-    public void OnSelected()
-    {
+    public void OnSelected() {
         currentSettings.showScore = true;
     }
 
-    public void OffSelected()
-    {
+    public void OffSelected() {
         currentSettings.showScore = false;
     }
 }

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector3 playerSpawnPos = new Vector3(0, 1.6f, 0);
     [SerializeField] GameObject scoreObj;
     [SerializeField] TextMeshProUGUI scoreText;
-    [HideInInspector] public string gameMode;
+    [HideInInspector] public GameMode gameMode;
     [HideInInspector] public int totalNumberOfLightUps;
     [HideInInspector] public bool paused;
     [SerializeField] GameObject fadeOut;
