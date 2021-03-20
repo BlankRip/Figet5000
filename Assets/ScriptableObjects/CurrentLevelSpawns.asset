@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bc89a16ef6c4f418a740a14f62af77, type: 3}
   m_Name: CurrentLevelSpawns
   m_EditorClassIdentifier: 
-  selectedPlayer: {fileID: 3505550740649258074, guid: a4071302d00885d459a6c4b001c45aa1,
+  selectedPlayer: {fileID: 1218077972693846626, guid: 7a448bb81d901ae40bdb89d47798bfb9,
     type: 3}
   selectedLayout: {fileID: 7425898913192424622, guid: f6264575e5e97fe4ab34f7dec6f0124e,
     type: 3}

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSettings: {fileID: 11400000, guid: 005d64c81f4948b4b836d1273f6cf686, type: 2}
+  myMesh: {fileID: 735382241938593421}
 --- !u!143 &6328200869197952839
 CharacterController:
   m_ObjectHideFlags: 0

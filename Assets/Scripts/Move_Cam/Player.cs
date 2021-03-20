@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private float currentDTime;
 
     [SerializeField] PlayerSettings currentSettings;
+    [SerializeField] Transform myMesh;
 
     void Start() {
         cc = GetComponent<CharacterController>();
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
             verticleInput = verticleInput * currentSettings.sprintSpeedMultiplier;
         }
 
-        Vector3 move = transform.forward * verticleInput + transform.right * horizontalInput;
+        Vector3 move = myMesh.forward * verticleInput + myMesh.right * horizontalInput;
         if(dashin) {
             move = move * currentSettings.dashMultiplier;
             currentDTime -= Time.deltaTime;
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
         //Rotation
         if (horizontalInput != 0 || verticaleInput != 0) {
             turnAngle = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, turnAngle, currentSettings.rotationSpeed * Time.deltaTime);
+            myMesh.rotation = Quaternion.Slerp(myMesh.rotation, turnAngle, currentSettings.rotationSpeed * Time.deltaTime);
         }
     }
 }
