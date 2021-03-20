@@ -21,8 +21,8 @@ TagManager:
   - 
   - CamClipAble
   - CanNotStick
-  - 
-  - 
+  - PlayerBody
+  - GroundTrigger
   - 
   - 
   - 

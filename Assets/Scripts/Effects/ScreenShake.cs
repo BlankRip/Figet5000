@@ -14,22 +14,19 @@ public class ScreenShake : MonoBehaviour
     bool isShaking;
     bool impactfulShake;
 
-    void Awake()
-    {
+    void Awake() {
         if(instance == null)
             instance = this;
         shakeParent = transform.parent;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(isShaking){
+    void Update() {
+        if(isShaking) {
             shakeVector = (shakeParent.up * Mathf.Sin(Time.time * shakeFrequency) + shakeParent.right * Mathf.Sin((Time.time * shakeFrequency) + 51)).normalized * maxDisplacement * shakeFactor;
             transform.position = shakeParent.position + shakeVector;
             shakeFactor -= Time.deltaTime * shakeDecay;
-            if(shakeFactor < 0)
-            {
+            if(shakeFactor < 0) {
                 isShaking = false;
                 if (impactfulShake)
                     impactfulShake = false;
@@ -39,14 +36,12 @@ public class ScreenShake : MonoBehaviour
 
     }
 
-    public void ShakeCamera(float value)
-    {
+    public void ShakeCamera(float value) {
         isShaking = true;
         shakeFactor += value;
     }
 
-    public void ShakeCamera(float value, float limit, bool impactful)
-    {
+    public void ShakeCamera(float value, float limit, bool impactful) {
         isShaking = true;
         if (!impactfulShake)
         {

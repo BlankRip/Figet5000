@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         totalNumberOfLightUps = FindObjectsOfType<InstaReset>().Length;
         scoreText.text = score.ToString();
-        Debug.Log(totalNumberOfLightUps);
+        //Debug.Log(totalNumberOfLightUps);
     }
 
     public void AddScore()

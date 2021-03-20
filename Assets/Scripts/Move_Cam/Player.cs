@@ -5,20 +5,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private CharacterController cc;
-    GameObject mainCam;
-    Vector3 currentVelRef;
-    Quaternion turnAngle;
-    float horizontalInput, verticaleInput;
-    bool jump, sprinting;
+    private GameObject mainCam;
+    private Vector3 currentVelRef;
+    private Quaternion turnAngle;
+    private float horizontalInput, verticaleInput;
+    private bool jump, sprinting;
     private bool grounded;
     private Vector3 velocity;
+    private ShakeTrigger shake;
 
     [SerializeField] PlayerSettings currentSettings;
-    [SerializeField] float currentVelMag;
 
-    void Start()
-    {
+    void Start() {
         cc = GetComponent<CharacterController>();
+        shake = GetComponentInChildren<ShakeTrigger>();
         currentVelRef = Vector3.zero;
         mainCam = Camera.main.gameObject;
 
@@ -26,8 +26,7 @@ public class Player : MonoBehaviour
             currentSettings.gravity = currentSettings.gravity * -1;
     }
 
-    void Update()
-    {
+    void Update() {
         grounded = cc.isGrounded;
 
         horizontalInput = Input.GetAxis("Horizontal") * currentSettings.moveSpeed;
@@ -42,12 +41,10 @@ public class Player : MonoBehaviour
             sprinting = false;
 
         Movement(horizontalInput, verticaleInput, ref jump);
-        currentVelMag = cc.velocity.y;
     }
 
 
     //Functions----------------------------
-
     void Movement(float horizontalInput, float verticleInput, ref bool jump) {
         if(sprinting) {
             horizontalInput = horizontalInput * currentSettings.sprintSpeedMultiplier;
@@ -66,20 +63,12 @@ public class Player : MonoBehaviour
         }
         velocity.y += currentSettings.gravity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);
+        shake.yVel = velocity.y;
 
         //Rotation
         if (horizontalInput != 0 || verticaleInput != 0) {
             turnAngle = Quaternion.Euler(0, mainCam.transform.eulerAngles.y, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, turnAngle, currentSettings.rotationSpeed * Time.deltaTime);
         }
-    }
-
-
-    private void OnTriggerEnter(Collider other) 
-    {
-        //Debug.Log(currentVelMag);
-        //Debug.Log(Mathf.Abs((int)(currentVelMag/20)) - 0.7f);
-        if(currentVelMag < -30)
-            ScreenShake.instance.ShakeCamera(0.5f, Mathf.Abs((int) (currentVelMag/20)) - 0.7f, true);
     }
 }
