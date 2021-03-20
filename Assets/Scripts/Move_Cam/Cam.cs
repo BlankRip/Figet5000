@@ -15,8 +15,8 @@ public class Cam : MonoBehaviour
     [Tooltip("Smoothening done while lerping the object rotation")]
     [SerializeField] float smoothCamRotation = 10.0f;
 
-    float mouseX;                                            //The current horizontal input value for horizontal rotaion
-    float mouseY;                                            //The current vertical input value for the vertical rotation
+    private float mouseX;                                            //The current horizontal input value for horizontal rotaion
+    private float mouseY;                                            //The current vertical input value for the vertical rotation
 
     [Header("Things needed to do wall clipping for the camera")]
     [Tooltip("Minimum distance the object will be from the target")]
@@ -34,9 +34,9 @@ public class Cam : MonoBehaviour
     Vector3 desiredCameraDir;         //The expected camera direction
     RaycastHit hit;                   //Object that stores details of the objects it hit during the linear cast
 
-    void Start()
-    {
+    void Start() {
         target = GameObject.FindGameObjectWithTag("CamFocus").transform;
+        transform.parent = target.parent.transform;
         Cursor.visible = false;                                     //Setting cursor to not be visible when playing the game
         Cursor.lockState = CursorLockMode.Locked;                   //Locking the cursor to the center of the screen so that it does not move out of the window
         initialMovementSmoothness = smoothCamMovement;
@@ -44,10 +44,8 @@ public class Cam : MonoBehaviour
             mouseSensitivity = PlayerPrefs.GetFloat("MouseSens");
     }
 
-    void Update()
-    {
-        if(!GameManager.instance.paused)
-        {
+    void Update() {
+        if(!GameManager.instance.paused) {
             mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;               //Getting horizontal movement input of the mouse
             mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivity;               //Getting vertical movement input of the mouse
             mouseY = Mathf.Clamp(mouseY, verticalClampMin, verticalClampMax);    //Clamping the vertical value    //Setting object to always look at target
@@ -56,13 +54,10 @@ public class Cam : MonoBehaviour
             desiredCameraDir = Quaternion.Euler(mouseY, mouseX, 0) * Vector3.back;       //The direction the camera will be facing
 
             //// Check if there is a wall or object between the camera and move the camera close to the target if so else set the camera to be at the normal distance from the target
-            if (Physics.Raycast(target.transform.position, desiredCameraDir, out hit, maxDistance, WallClipLayerMask))
-            {
+            if (Physics.Raycast(target.transform.position, desiredCameraDir, out hit, maxDistance, WallClipLayerMask)) {
                 distance = Mathf.Clamp((hit.distance - 0.2f), minDistance, maxDistance);
                 smoothCamMovement = 5;
-            }
-            else
-            {
+            } else {
                 distance = maxDistance;
                 smoothCamMovement = initialMovementSmoothness;
             }
