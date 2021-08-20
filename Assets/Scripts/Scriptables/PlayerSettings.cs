@@ -14,6 +14,7 @@ public class PlayerSettings : ScriptableObject
     public KeyCode jumpKey = KeyCode.Space;
     public float jumpHight;
     public float gravity;
+    public float gravityFallMultiplier = 2;
     public float dashTime = 0.2f;
     public float dashMultiplier = 5;
 

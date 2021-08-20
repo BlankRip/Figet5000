@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerSettings currentSettings;
     [SerializeField] Transform myMesh;
 
+    private float gravity;
+    private bool wasGrounded;
+    private float targetY;
+
     void Start() {
         cc = GetComponent<CharacterController>();
         shake = GetComponentInChildren<ShakeTrigger>();
@@ -34,6 +38,11 @@ public class Player : MonoBehaviour
 
     void Update() {
         grounded = cc.isGrounded;
+        if(!wasGrounded && grounded) {
+            gravity = currentSettings.gravity;
+            targetY = -69;
+        }
+        wasGrounded = grounded;
 
         horizontalInput = Input.GetAxis("Horizontal") * currentSettings.moveSpeed;
         verticaleInput = Input.GetAxis("Vertical") * currentSettings.moveSpeed;
@@ -54,8 +63,6 @@ public class Player : MonoBehaviour
         Movement(horizontalInput, verticaleInput, ref jump);
     }
 
-
-    //Functions----------------------------
     void Movement(float horizontalInput, float verticleInput, ref bool jump) {
         if(sprinting) {
             horizontalInput = horizontalInput * currentSettings.sprintSpeedMultiplier;
@@ -78,9 +85,19 @@ public class Player : MonoBehaviour
 
         if(jump) {
             velocity.y = Mathf.Sqrt(currentSettings.jumpHight * -2 * currentSettings.gravity);
+            targetY = transform.position.y + currentSettings.jumpHight - 0.15f;
+            gravity = currentSettings.gravity;
             jump = false;
         }
-        velocity.y += currentSettings.gravity * Time.deltaTime;
+        if(targetY != -69) {
+            if(transform.position.y >= targetY) {
+                Debug.Log("Doubled");
+                gravity = currentSettings.gravity * currentSettings.gravityFallMultiplier;
+                targetY = -69;
+            }
+        }
+
+        velocity.y += gravity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);
         shake.yVel = velocity.y;
 
